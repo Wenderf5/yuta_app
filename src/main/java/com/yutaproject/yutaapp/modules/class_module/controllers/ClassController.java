@@ -6,7 +6,6 @@ import com.yutaproject.yutaapp.modules.class_module.controllers.DTOs.UpdateYearC
 import com.yutaproject.yutaapp.modules.class_module.services.DeleteClassService;
 import com.yutaproject.yutaapp.modules.class_module.services.NewClassService;
 import com.yutaproject.yutaapp.modules.class_module.services.UpdateClassService;
-import com.yutaproject.yutaapp.modules.discipline_module.controllers.DTOs.UpdateTeacherDisciplineDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +38,7 @@ public class ClassController {
         return this.deleteClassService.deleteClassService(id);
     }
 
-    @PatchMapping("/update-class/{id}")
+    @PatchMapping("/update-class-name/{id}")
     public ResponseEntity<String> updateNameClass(
             @PathVariable("id") Long id,
             @RequestBody UpdateNameClassDTO updateNameClassDTO
@@ -47,7 +46,7 @@ public class ClassController {
         return this.updateClassService.updateNameClass(id, updateNameClassDTO.getNewName());
     }
 
-    @PatchMapping("/update-class/{id}")
+    @PatchMapping("/update-class-year/{id}")
     public ResponseEntity<String> updateYearClass(
             @PathVariable("id") Long id,
             @RequestBody UpdateYearClassDTO updateYearClass
